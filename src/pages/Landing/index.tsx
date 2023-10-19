@@ -5,14 +5,14 @@ import { FaChevronCircleLeft, FaChevronCircleRight } from 'react-icons/fa';
 import { FaBars } from 'react-icons/fa';
 import { useRef } from 'react';
 import { ScrollMenu } from 'react-horizontal-scrolling-menu';
-import { idText } from 'typescript';
+//  import { idText } from 'typescript';
 import Partiners from '../../components/Partiners';
 import minLogo from '../../assets/images/logo1.svg';
 import logoFull from '../../assets/images/Logo4.png';
 import logoGooglePlay from '../../assets/images/google-play.png';
 import miniLogo from '../../assets/images/miniLogo.png';
 import logoWhite from '../../assets/images/logoFullWhite.png';
-import api from '../../services/api';
+//  import api from '../../services/api';
 
 interface Hospital {
   id: number;
