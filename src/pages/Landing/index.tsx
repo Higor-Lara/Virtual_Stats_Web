@@ -1,7 +1,3 @@
-/* eslint-disable prettier/prettier */
-/* eslint-disable no-unused-vars */
-/* eslint-disable prettier/prettier */
-/* eslint-disable react/function-component-definition */
 import React, { FormEvent, useEffect, useState } from 'react';
 import './style.css';
 import { MdEmail } from 'react-icons/md';
