@@ -158,7 +158,7 @@ const Landing: React.FC = () => {
     const subject = subjectRef.current?.value;
     const message = messageRef.current?.value;
 
-    const url = `mailto:virtualstatsapp@gmail.com?subject=${subject}&body=Nome: ${name}. Mensagem: ${message}`;
+    const url: string = `mailto:virtualstatsapp@gmail.com?subject=${subject}&body=Nome: ${name}. Mensagem: ${message}`;
 
     window.open(url, '_blank');
   };
