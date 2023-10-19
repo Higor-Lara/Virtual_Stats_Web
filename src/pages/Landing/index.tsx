@@ -5,6 +5,7 @@ import { FaChevronCircleLeft, FaChevronCircleRight } from 'react-icons/fa';
 import { FaBars } from 'react-icons/fa';
 import { useRef } from 'react';
 import { ScrollMenu } from 'react-horizontal-scrolling-menu';
+import { idText } from 'typescript';
 import Partiners from '../../components/Partiners';
 import minLogo from '../../assets/images/logo1.svg';
 import logoFull from '../../assets/images/Logo4.png';
@@ -12,7 +13,6 @@ import logoGooglePlay from '../../assets/images/google-play.png';
 import miniLogo from '../../assets/images/miniLogo.png';
 import logoWhite from '../../assets/images/logoFullWhite.png';
 import api from '../../services/api';
-import { idText } from 'typescript';
 
 interface Hospital {
   id: number;
@@ -39,17 +39,17 @@ const Landing: React.FC = () => {
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
 
-    //async function LoadData() {
-    //const response = await api.get('/hospitals');
+    // async function LoadData() {
+    // const response = await api.get('/hospitals');
 
-    //const hospitalArray = response.data.map(
-    //(hospital: { id: number; nome: string; endereco: string }) => {
-    //const { id, nome, endereco } = hospital;
-    //return {
-    //id,
-    //name: nome,
+    // const hospitalArray = response.data.map(
+    // (hospital: { id: number; nome: string; endereco: string }) => {
+    // const { id, nome, endereco } = hospital;
+    // return {
+    // id,
+    // name: nome,
     // locale: endereco,
-    //};
+    // };
     // },
     // );
     const hospitalArray: Hospital[] = [
@@ -87,9 +87,9 @@ const Landing: React.FC = () => {
     ];
 
     setHospitaisList(hospitalArray);
-    //}
+    // }
 
-    //LoadData();
+    // LoadData();
 
     return () => {
       window.removeEventListener('scroll', handleScroll);
@@ -289,9 +289,9 @@ const Landing: React.FC = () => {
           <ScrollMenu
             LeftArrow={<FaChevronCircleLeft size={40} color="#0096c7" />}
             RightArrow={<FaChevronCircleRight size={40} color="#0096c7" />}
-            //itemStyle={{ marginLeft: 30, height: 355 }}
-            //dragging
-            //wheel={false}
+            // itemStyle={{ marginLeft: 30, height: 355 }}
+            // dragging
+            // wheel={false}
           >
             {hospitaisList.map(hospital => {
               return (
