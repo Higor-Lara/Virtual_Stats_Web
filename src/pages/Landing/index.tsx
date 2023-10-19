@@ -4,7 +4,7 @@ import { MdEmail } from 'react-icons/md';
 import { FaChevronCircleLeft, FaChevronCircleRight } from 'react-icons/fa';
 import { FaBars } from 'react-icons/fa';
 import { useRef } from 'react';
-import ScrollMenu from 'react-horizontal-scrolling-menu';
+import { ScrollMenu } from 'react-horizontal-scrolling-menu';
 import Partiners from '../../components/Partiners';
 import minLogo from '../../assets/images/logo1.svg';
 import logoFull from '../../assets/images/Logo4.png';
@@ -287,7 +287,13 @@ const Landing: React.FC = () => {
         </div>
         <div className="partners-hospitals">
           <ScrollMenu
-            data={hospitaisList.map(hospital => {
+            LeftArrow={<FaChevronCircleLeft size={40} color="#0096c7" />}
+            RightArrow={<FaChevronCircleRight size={40} color="#0096c7" />}
+            //itemStyle={{ marginLeft: 30, height: 355 }}
+            //dragging
+            //wheel={false}
+          >
+            {hospitaisList.map(hospital => {
               return (
                 <Partiners
                   key={hospital.id}
@@ -296,12 +302,7 @@ const Landing: React.FC = () => {
                 />
               );
             })}
-            arrowLeft={<FaChevronCircleLeft size={40} color="#0096c7" />}
-            arrowRight={<FaChevronCircleRight size={40} color="#0096c7" />}
-            itemStyle={{ marginLeft: 30, height: 355 }}
-            dragging
-            wheel={false}
-          />
+          </ScrollMenu>
         </div>
         <div className="proposal-hospitals">
           <div className="question-img-hospital">
