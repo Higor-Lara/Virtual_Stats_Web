@@ -1,10 +1,9 @@
-import React, { FormEvent, useEffect, useState } from 'react';
+import React, { FormEvent, useEffect, useState, useRef } from 'react';
 import './style.css';
 import { MdEmail } from 'react-icons/md';
 import { FaChevronCircleLeft, FaChevronCircleRight } from 'react-icons/fa';
 import { FaBars } from 'react-icons/fa';
-import { useRef } from 'react';
-import { ScrollMenu } from 'react-horizontal-scrolling-menu';
+// import { ScrollMenu } from 'react-horizontal-scrolling-menu';
 //  import { idText } from 'typescript';
 import Partiners from '../../components/Partiners';
 import minLogo from '../../assets/images/logo1.svg';
@@ -84,6 +83,22 @@ const Landing: React.FC = () => {
         locale:
           'Av. Conde do Pinhal - Vila Rezende, Piracicaba - SP, 13414-042',
       },
+      {
+        id: 6,
+        name: 'São Francisco saúde',
+        locale:
+          'Av. Conde do Pinhal - Vila Rezende, Piracicaba - SP, 13414-042',
+      },
+      {
+        id: 7,
+        name: 'Santa Isabel',
+        locale: 'Av. Independência, 953 - Alto, Piracicaba - SP',
+      },
+      {
+        id: 8,
+        name: 'Unimed',
+        locale: 'R. do Rosário, 1870 - Centro, Piracicaba - SP, 13400-186',
+      },
     ];
 
     setHospitaisList(hospitalArray);
@@ -161,6 +176,18 @@ const Landing: React.FC = () => {
     const url: string = `mailto:virtualstatsapp@gmail.com?subject=${subject}&body=Nome: ${name}. Mensagem: ${message}`;
 
     window.open(url, '_blank');
+  };
+
+  const fwidth = useRef<HTMLInputElement>(null);
+  const swidth = useRef<HTMLInputElement>(null);
+
+  const leftArrow = () => {
+    const aaa = document.getElementById('transi');
+    aaa!.scrollLeft = aaa!.scrollLeft - 500;
+  };
+  const leftRight = () => {
+    const aaa = document.getElementById('transi');
+    aaa!.scrollLeft = aaa!.scrollLeft + 500;
   };
 
   return (
@@ -286,24 +313,36 @@ const Landing: React.FC = () => {
           <p>Parceiros</p>
         </div>
         <div className="partners-hospitals">
-          <ScrollMenu
-            LeftArrow={<FaChevronCircleLeft size={40} color="#0096c7" />}
-            RightArrow={<FaChevronCircleRight size={40} color="#0096c7" />}
-            // itemStyle={{ marginLeft: 30, height: 355 }}
-            // dragging
-            // wheel={false}
-          >
-            {hospitaisList.map(hospital => {
-              return (
-                <Partiners
-                  key={hospital.id}
-                  name={hospital.name}
-                  locale={hospital.locale}
-                />
-              );
-            })}
-          </ScrollMenu>
+          <button type="button" className="btn-scroll">
+            <FaChevronCircleLeft
+              size={40}
+              color="#0096c7"
+              onClick={() => leftArrow()}
+            />
+          </button>
+          <div ref={swidth} className="horizontal-scroll" id="transi">
+            <div ref={fwidth} className="storys-container">
+              {hospitaisList.map(hospital => {
+                return (
+                  <Partiners
+                    key={hospital.id}
+                    name={hospital.name}
+                    locale={hospital.locale}
+                  />
+                );
+              })}
+            </div>
+          </div>
+          <button type="button" className="btn-scroll">
+            <FaChevronCircleRight
+              type="button"
+              size={40}
+              color="#0096c7"
+              onClick={() => leftRight()}
+            />
+          </button>
         </div>
+
         <div className="proposal-hospitals">
           <div className="question-img-hospital">
             <p>Possui um Hospital?</p>
